@@ -20,8 +20,8 @@ import {
   View,
   ViewStyle,
 } from 'react-native'
+import * as Crypto from 'expo-crypto';
 import { LightboxProps } from 'react-native-lightbox-v2'
-import { v4 as uuidv4 } from 'uuid';
 import { Actions, ActionsProps } from './Actions'
 import { Avatar, AvatarProps } from './Avatar'
 import Bubble from './Bubble'
@@ -236,7 +236,7 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
     text = undefined,
     initialText = '',
     isTyping,
-    messageIdGenerator = () => uuidv4(),
+    messageIdGenerator = () => Crypto.randomUUID(),
     user = {},
     onSend = () => { },
     locale = 'en',
